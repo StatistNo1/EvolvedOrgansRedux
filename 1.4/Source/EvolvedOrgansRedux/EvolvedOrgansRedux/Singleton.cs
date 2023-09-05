@@ -1,6 +1,6 @@
 ﻿namespace EvolvedOrgansRedux {
     public sealed class Singleton {
-        public Settings  settings= Verse.LoadedModManager.GetMod<EvolvedOrgansReduxSettings>().GetSettings<Settings>();
+        public Settings settings = Verse.LoadedModManager.GetMod<EvolvedOrgansReduxSettings>().GetSettings<Settings>();
 
         public System.Collections.Generic.List<System.Tuple<Verse.RecipeDef, Verse.BodyPartDef>> bodyPartsToDelete = new System.Collections.Generic.List<System.Tuple<Verse.RecipeDef, Verse.BodyPartDef>>();
 

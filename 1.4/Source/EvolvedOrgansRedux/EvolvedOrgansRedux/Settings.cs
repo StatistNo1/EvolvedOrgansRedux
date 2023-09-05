@@ -3,13 +3,11 @@
         public bool BodyPartAffinity;
         public string ChosenWorkbench;
         public bool ImportantMessage20320905;
-        //public bool ResearchMessage;
         public System.Collections.Generic.List<string> workbenches = new System.Collections.Generic.List<string> { "Evolved Organs Redux" };
         public override void ExposeData() {
             Verse.Scribe_Values.Look(ref BodyPartAffinity, "BodyPartAffinity");
             Verse.Scribe_Values.Look(ref ChosenWorkbench, "ChosenWorkbench");
-            Verse.Scribe_Values.Look(ref ImportantMessage20320905, "RemovedSetting-CombatibilitySwitchEORVersionMidSave");
-            //Verse.Scribe_Values.Look(ref ResearchMessage, "ResearchMessage");
+            Verse.Scribe_Values.Look(ref ImportantMessage20320905, "RemovedSetting-CombatibilitySwitchEORVersionMidSave", false, true);
             base.ExposeData();
         }
     }

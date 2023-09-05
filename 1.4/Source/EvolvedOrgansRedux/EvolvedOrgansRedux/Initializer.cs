@@ -58,9 +58,11 @@
                 }
                 Verse.Find.LetterStack.ReceiveLetter(label, text, RimWorld.LetterDefOf.NeutralEvent);
             }
-        }
-        public override void LoadedGame() {
-            base.LoadedGame();
+
+            Verse.Find.LetterStack.ReceiveLetter("EvolvedOrgansRedux additional bodyparts",
+                "To install implants in the LowerShoulders, Tail and Back you need to research the Limb-Torso Support Structures project." +
+                "\nTo install implants in the BodyCavities you need to research the Additional Organs project.",
+                RimWorld.LetterDefOf.NeutralEvent);
         }
         public override void FinalizeInit() {
             base.FinalizeInit();
@@ -69,6 +71,8 @@
                     "I have removed the setting 'CombatibilitySwitchEORVersionMidSave'. This setting was only there for someone that transitioned from the original EVOR version to this one. It's been a few years now since my version is the only one up to date, so everyone should have disabled that setting by now. If you get problems with your implants switching positions or stuff like that, please let me know on the Steam page.",
                     RimWorld.LetterDefOf.NeutralEvent);
                 Singleton.Instance.settings.ImportantMessage20320905 = true;
+                Verse.LoadedModManager.GetMod<EvolvedOrgansReduxSettings>().WriteSettings();
+
             }
         }
     }
