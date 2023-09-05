@@ -44,3 +44,7 @@ C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\---EvolvedOrgansRedu
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\---EvolvedOrgansRedux\1.4\Source\EvolvedOrgansRedux\EvolvedOrgansRedux\obj\Debug\EvolvedOrgansRedux.csproj.CoreCompileInputs.cache
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\---EvolvedOrgansRedux\1.4\Source\EvolvedOrgansRedux\EvolvedOrgansRedux\obj\Debug\EvolvedOrgansRedux.dll
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\---EvolvedOrgansRedux\1.4\Source\EvolvedOrgansRedux\EvolvedOrgansRedux\obj\Debug\EvolvedOrgansRedux.csproj.AssemblyReference.cache
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\EvolvedOrgansRedux\1.4\Assemblies\EvolvedOrgansRedux.dll
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\EvolvedOrgansRedux\1.4\Source\EvolvedOrgansRedux\EvolvedOrgansRedux\obj\Debug\EvolvedOrgansRedux.csproj.AssemblyReference.cache
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\EvolvedOrgansRedux\1.4\Source\EvolvedOrgansRedux\EvolvedOrgansRedux\obj\Debug\EvolvedOrgansRedux.csproj.CoreCompileInputs.cache
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\EvolvedOrgansRedux\1.4\Source\EvolvedOrgansRedux\EvolvedOrgansRedux\obj\Debug\EvolvedOrgansRedux.dll

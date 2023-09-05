@@ -1,15 +1,15 @@
 ﻿namespace EvolvedOrgansRedux {
     public class Settings : Verse.ModSettings {
-        public bool CombatibilitySwitchEorVersionMidSave;
         public bool BodyPartAffinity;
         public string ChosenWorkbench;
-        public bool importantMessage20082021;
+        public bool ImportantMessage20320905;
+        //public bool ResearchMessage;
         public System.Collections.Generic.List<string> workbenches = new System.Collections.Generic.List<string> { "Evolved Organs Redux" };
         public override void ExposeData() {
-            Verse.Scribe_Values.Look(ref CombatibilitySwitchEorVersionMidSave, "CombatibilitySwitchEORVersionMidSave");
             Verse.Scribe_Values.Look(ref BodyPartAffinity, "BodyPartAffinity");
             Verse.Scribe_Values.Look(ref ChosenWorkbench, "ChosenWorkbench");
-            Verse.Scribe_Values.Look(ref importantMessage20082021, "ticksUntilBerserk");
+            Verse.Scribe_Values.Look(ref ImportantMessage20320905, "RemovedSetting-CombatibilitySwitchEORVersionMidSave");
+            //Verse.Scribe_Values.Look(ref ResearchMessage, "ResearchMessage");
             base.ExposeData();
         }
     }
@@ -24,10 +24,6 @@
                 settings.ChosenWorkbench = settings.workbenches[0];
             Verse.Listing_Standard listingStandard = new Verse.Listing_Standard();
             listingStandard.Begin(inRect);
-            listingStandard.Label("Check this option if you are switching from another EOR Version to this one in the middle of a save. Please uncheck this option before starting a new save.\nThe game has to be restarted for this change to take effect.");
-            listingStandard.Gap();
-            listingStandard.CheckboxLabeled("CombatibilitySwitchEORVersionMidSave", ref settings.CombatibilitySwitchEorVersionMidSave);
-            listingStandard.GapLine();
             listingStandard.Label("Check this option if you want to put archotech arms on lower shoulders or additional non-Evor lungs into your body.\nThe game has to be restarted for this change to take effect.");
             listingStandard.Gap();
             listingStandard.CheckboxLabeled("BodyPartAffinity", ref settings.BodyPartAffinity);

@@ -21,7 +21,7 @@
     <OutputPath>..\..\..\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>1</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
@@ -58,14 +61,6 @@
       <HintPath>.\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>..\..\..\..\..\..\..\..\..\..\..\Program Files\UnityEditor\2020.3.13f1\Editor\Data\Managed\UnityEngine\UnityEngine.IMGUIModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>..\..\..\..\..\..\..\..\..\..\..\Program Files\UnityEditor\2020.3.13f1\Editor\Data\Managed\UnityEngine\UnityEngine.TextRenderingModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddBodyParts.cs" />
@@ -76,7 +71,6 @@
     <Compile Include="DefOf.cs" />
     <Compile Include="HediffCompProperties.cs" />
     <Compile Include="Harmony_Patches.cs" />
-    <Compile Include="PatchOperationCombatibilitySwitchEorVersionMidSave.cs" />
     <Compile Include="PatchOperationChooseWorkbench.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Initializer.cs" />

@@ -9,10 +9,10 @@ namespace EvolvedOrgansRedux {
 		private PatchOperation lastFailedOperation;
 
 		protected override bool ApplyWorker(XmlDocument xml) {
-			if (modname != null && !Verse.LoadedModManager.GetMod<EvolvedOrgansReduxSettings>().GetSettings<Settings>().workbenches.Contains(modname))
-				Verse.LoadedModManager.GetMod<EvolvedOrgansReduxSettings>().GetSettings<Settings>().workbenches.Add(modname);
+			if (modname != null && !Singleton.Instance.settings.workbenches.Contains(modname))
+				Singleton.Instance.settings.workbenches.Add(modname);
 
-			if (Verse.LoadedModManager.GetMod<EvolvedOrgansReduxSettings>().GetSettings<Settings>().ChosenWorkbench == modname) {
+			if (Singleton.Instance.settings.ChosenWorkbench == modname) {
 				foreach (PatchOperation operation in operations) {
 					if (!operation.Apply(xml)) {
 						lastFailedOperation = operation;
