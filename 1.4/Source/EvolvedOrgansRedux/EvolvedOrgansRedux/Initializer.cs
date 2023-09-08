@@ -2,19 +2,8 @@
     [Verse.StaticConstructorOnStartup]
     public static class Initializer {
         static Initializer() {
-            Singleton.Instance.calculateLimbCores();
-            HarmonyLib.Harmony harmony = null;
             try {
-                harmony = new HarmonyLib.Harmony("EvolvedOrgansRedux");
-                harmony.PatchAll(System.Reflection.Assembly.GetExecutingAssembly());
-            } catch (System.Exception e) {
-                string errorMessage = "EvolvedOrgansRedux Error: Step one";
-                errorMessage += "\n" + e;
-                Verse.Log.Error(errorMessage);
-            }
-            Singleton.Instance.NameOfThisMod = harmony.Id;
-            try {
-                new AddDefsForEachModdedRace(harmony.Id);
+                new AddDefsForEachModdedRace();
             } catch (System.Exception e) {
                 string errorMessage = "EvolvedOrgansRedux Error: Step two";
                 errorMessage += "\n" + e;
@@ -22,13 +11,16 @@
             }
             try {
                 if (Verse.LoadedModManager.GetMod<EvolvedOrgansReduxSettings>().GetSettings<Settings>().BodyPartAffinity) {
-                    new BodyPartAffinity(harmony.Id);
+                    new BodyPartAffinity();
                 }
             } catch (System.Exception e) {
                 string errorMessage = "EvolvedOrgansRedux Error: Step three";
                 errorMessage += "\n" + e;
                 Verse.Log.Error(errorMessage);
             }
+
+            Singleton.Instance.AddBodyPartTagDefToList(RimWorld.BodyPartTagDefOf.ManipulationLimbCore);
+            Singleton.Instance.AddBodyPartTagDefToList(RimWorld.BodyPartTagDefOf.MovingLimbCore);
         }
     }
     public class GameComponent : Verse.GameComponent {
@@ -43,15 +35,15 @@
                 }
             }
             Singleton.Instance.bodyPartsToDelete.Clear();
-            if (Singleton.Instance.settings.workbenches.Count > 1 && Singleton.Instance.settings.ChosenWorkbench == Singleton.Instance.settings.workbenches[0]) {
+            if (Singleton.Instance.settings.ChoicesOfWorkbenches.Count > 1 && Singleton.Instance.settings.ChosenWorkbench == Singleton.Instance.settings.ChoicesOfWorkbenches[0]) {
                 string label = "EvolvedOrgansRedux";
                 string text = "EvolvedOrgansRedux has detected that you have the mod " +
-                    Singleton.Instance.settings.workbenches[1] +
+                    Singleton.Instance.settings.ChoicesOfWorkbenches[1] +
                     " active. In the settings menu you can choose the workbench of that mod to reduce the amount of workbenches and ressources.";
-                if (Singleton.Instance.settings.workbenches.Count > 2 && Singleton.Instance.settings.ChosenWorkbench == Singleton.Instance.settings.workbenches[0]) {
+                if (Singleton.Instance.settings.ChoicesOfWorkbenches.Count > 2 && Singleton.Instance.settings.ChosenWorkbench == Singleton.Instance.settings.ChoicesOfWorkbenches[0]) {
                     text = "EvolvedOrgansRedux has detected that you have the mods ";
-                    for (int i = 1; i < Singleton.Instance.settings.workbenches.Count; i++) {
-                        text += "\n\n" + Singleton.Instance.settings.workbenches[i];
+                    for (int i = 1; i < Singleton.Instance.settings.ChoicesOfWorkbenches.Count; i++) {
+                        text += "\n\n" + Singleton.Instance.settings.ChoicesOfWorkbenches[i];
                     }
                     text += "\n\nenabled." +
                         "\nIn the settings menu you can choose a workbench of those mods to reduce the amount of workbenches and ressources.";

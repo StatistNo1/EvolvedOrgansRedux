@@ -1,54 +1,84 @@
 ﻿using System.Linq;
 
 namespace EvolvedOrgansRedux {
-    [HarmonyLib.HarmonyPatch(typeof(RimWorld.AgeInjuryUtility))]
-    [HarmonyLib.HarmonyPatch("RandomHediffsToGainOnBirthday", HarmonyLib.MethodType.Normal)]
-    [HarmonyLib.HarmonyPatch(new System.Type[] { typeof(Verse.Pawn), typeof(int) })]
-    static class PreventAgeHediffsIfImmortal_Patch {
-        [HarmonyLib.HarmonyPostfix]
-        public static void PreventAgeInjuries_Postfix(Verse.Pawn pawn, ref System.Collections.Generic.IEnumerable<Verse.HediffGiver_Birthday> __result) {
+    [Verse.StaticConstructorOnStartup]
+    public static class HarmonyPatches {
+        private static readonly System.Type patchType = typeof(HarmonyPatches);
+        private static HarmonyLib.Harmony harmony = null;
+
+        static HarmonyPatches() {
+            try {
+                harmony = new HarmonyLib.Harmony("EvolvedOrgansRedux");
+                Singleton.Instance.NameOfThisMod = harmony.Id;
+                Patch();
+            } catch (System.Exception e) {
+                string errorMessage = "EvolvedOrgansRedux -> Error: Step one";
+                errorMessage += "\n" + e;
+                Verse.Log.Error(errorMessage);
+            }
+        }
+        private static void Patch() {
+            PatcherPostFix(typeof(Verse.PawnCapacityUtility), nameof(Verse.PawnCapacityUtility.CalculateLimbEfficiency), nameof(CalculateLimbEfficiency_PostFix));
+            PatcherPostFix(typeof(RimWorld.AgeInjuryUtility), nameof(RimWorld.AgeInjuryUtility.RandomHediffsToGainOnBirthday), nameof(RandomHediffsToGainOnBirthday_Postfix), new System.Type[] { typeof(Verse.Pawn), typeof(int) });
+            PatcherPostFix(typeof(RimWorld.Recipe_RemoveBodyPart), nameof(RimWorld.Recipe_RemoveBodyPart.GetPartsToApplyOn), nameof(Recipe_RemoveBodyPart_Postfix));
+        }
+        private static void CalculateLimbEfficiency_PostFix(Verse.BodyPartTagDef limbCoreTag, ref float __result) {
+            foreach (System.Tuple<Verse.BodyPartTagDef, float> t in Singleton.Instance.BodyPartTagsToRecalculate) {
+                if (limbCoreTag == t.Item1) {
+                    __result = ((__result - 1f) * t.Item2) + 1f;
+                }
+                Verse.Log.Error(limbCoreTag.defName + " | " + __result);
+            }
+        }
+        private static void RandomHediffsToGainOnBirthday_Postfix(Verse.Pawn pawn, ref System.Collections.Generic.IEnumerable<Verse.HediffGiver_Birthday> __result) {
             if (pawn.health.hediffSet.HasHediff(Verse.HediffDef.Named("EVOR_Hediff_AbdominalAndChestcavity_RasVacoule"))) {
-                Verse.Log.Message("Pawn is immortal because of Ras Vacoule.");
+                if (Verse.Prefs.LogVerbose)
+                    Verse.Log.Message("EvolvedOrgansRedux -> Pawn is immortal because of Ras Vacoule.");
                 __result = System.Linq.Enumerable.Empty<Verse.HediffGiver_Birthday>();
             }
         }
-    }
-
-    [HarmonyLib.HarmonyPatch(typeof(Verse.PawnCapacityUtility))]
-    [HarmonyLib.HarmonyPatch("CalculateLimbEfficiency", HarmonyLib.MethodType.Normal)]
-    [HarmonyLib.HarmonyPatch(new System.Type[] { typeof(Verse.HediffSet), typeof(Verse.BodyPartTagDef), typeof(Verse.BodyPartTagDef), typeof(Verse.BodyPartTagDef),
-        typeof(float), typeof(float), typeof(System.Collections.Generic.List<Verse.PawnCapacityUtility.CapacityImpactor>) },
-        new HarmonyLib.ArgumentType[] { HarmonyLib.ArgumentType.Normal, HarmonyLib.ArgumentType.Normal, HarmonyLib.ArgumentType.Normal, HarmonyLib.ArgumentType.Normal,
-            HarmonyLib.ArgumentType.Normal, HarmonyLib.ArgumentType.Out, HarmonyLib.ArgumentType.Normal })]
-    public static class ManipulationFix {
-        [HarmonyLib.HarmonyPostfix]
-        public static void ManipulationFix_Patch(Verse.HediffSet diffSet, Verse.BodyPartTagDef limbCoreTag, ref float __result) {
-            //Bodyparts can be tagged with ManipulationLimbCore. That way they are influenced by body part efficency.
-            //Rimworld divides the manipulation gained by body parts tagged with ManipulationLimbCore by the amount of body parts tagged with ManipulationLimbCore.
-            //Rimworld usually only has Left Arm and Right Arm tagged with ManipulationLimbCore. That's why the Bionic Arm doesn't actually give 125% manipulation but just 112% -> It gets divided by 2.
-            //This mod adds another 5 parts that are influenced by effiency, and to get the gained manipulation back to basegame a bit of math has to be used.
-            //((Amount of Manipulation - Basestat) * (Amount of tagged BodyPartRecords / 2)) + Basestat
-            if (diffSet.pawn.def.modContentPack == null || !Singleton.Instance.forbiddenMods.Contains(diffSet.pawn.def.modContentPack.Name)) {
-                if (limbCoreTag.defName == RimWorld.BodyPartTagDefOf.ManipulationLimbCore.defName) {
-                    __result = ((__result - 1f) * Singleton.Instance.ManipulationLimbCore) + 1f;
-                }
-                if (limbCoreTag.defName == RimWorld.BodyPartTagDefOf.MovingLimbCore.defName) {
-                    __result = ((__result - 1f) * Singleton.Instance.MovingLimbCore) + 1f;
-                }
-            }
-        }
-    }
-    [HarmonyLib.HarmonyPatch(typeof(RimWorld.Recipe_RemoveBodyPart))]
-    [HarmonyLib.HarmonyPatch("GetPartsToApplyOn", HarmonyLib.MethodType.Normal)]
-    [HarmonyLib.HarmonyPatch(new System.Type[] { typeof(Verse.Pawn), typeof(Verse.RecipeDef) })]
-    public static class Recipe_RemoveBodyPart {
-        [HarmonyLib.HarmonyPostfix]
-        public static void Recipe_RemoveBodyPart_Postfix(ref System.Collections.Generic.IEnumerable<Verse.BodyPartRecord> __result) {
+        private static void Recipe_RemoveBodyPart_Postfix(ref System.Collections.Generic.IEnumerable<Verse.BodyPartRecord> __result) {
             //Remove the Recipe_RemoveBodyPart for the bodyparts added by this mod.
             //I would rather use my custom Recipe_RemoveImplant.
             __result = __result.Where(bodypartrecord => bodypartrecord.def != DefOf.LowerShoulder && bodypartrecord.def != DefOf.Back &&
                 bodypartrecord.def != DefOf.BodyCavity1 && bodypartrecord.def != DefOf.BodyCavity2 && bodypartrecord.def != DefOf.BodyCavityA
                 && !bodypartrecord.def.defName.ToLower().Contains("tail"));
         }
+        private static void PatcherPostFix(System.Type typeOfMethodToPatch, string nameOfMethodToPatch, string nameOfPatcherMethod, System.Type[] parameters = null) {
+            if (Verse.Prefs.LogVerbose)
+                Verse.Log.Message("EvolvedOrgansRedux -> Currently patching: " + nameOfPatcherMethod);
+            harmony.Patch(HarmonyLib.AccessTools.Method(type: typeOfMethodToPatch, name: nameOfMethodToPatch, parameters),
+                      postfix: new HarmonyLib.HarmonyMethod(methodType: patchType, methodName: nameOfPatcherMethod));
+        }
+        //private static void PatcherTranspiler(System.Type typeOfMethodToPatch, string nameOfMethodToPatch, string nameOfPatcherMethod, System.Type[] parameters = null) {
+        //    if (Verse.Prefs.LogVerbose)
+        //        Verse.Log.Message("EvolvedOrgansRedux -> Currently patching: " + nameOfPatcherMethod);
+        //    harmony.Patch(HarmonyLib.AccessTools.Method(type: typeOfMethodToPatch, name: nameOfMethodToPatch, parameters),
+        //              transpiler: new HarmonyLib.HarmonyMethod(methodType: patchType, methodName: nameOfPatcherMethod));
+        //}
+
+        //static IEnumerable<CodeInstruction> CalculateCapacityLevel_Transpilerfix(IEnumerable<CodeInstruction> instructions) {
+        //    bool instructionFound = false;
+        //    MethodInfo callToMathfMax = AccessTools.Method(typeof(Mathf), nameof(Mathf.Max), parameters: new System.Type[] { typeof(float), typeof(float) });
+        //    foreach (CodeInstruction instruction in instructions) {
+        //        yield return instruction;
+        //        if (instruction.Calls(callToMathfMax)) {
+        //            yield return new CodeInstruction(OpCodes.Ldarg_1);
+        //            yield return CodeInstruction.Call(patchType, nameof(FixCapacity));
+        //            instructionFound = true;
+        //        }
+        //    }
+        //    if (!instructionFound)
+        //        Log.Error("EvolvedOrgansRedux -> Instruction not found in CalculateCapacityLevel_Transpilerfix");
+        //
+        //}
+        //public static float FixCapacity(float capacityValue, BodyPartTagDef limbCoreTag) {
+        //    foreach (System.Tuple<Verse.BodyPartTagDef, float> t in Singleton.Instance.BodyPartTagsToRecalculate) {
+        //        if (limbCoreTag == t.Item1) {
+        //            capacityValue = ((capacityValue - 1f) * t.Item2) + 1f;
+        //        }
+        //    }
+        //    return capacityValue;
+        //}
     }
 }

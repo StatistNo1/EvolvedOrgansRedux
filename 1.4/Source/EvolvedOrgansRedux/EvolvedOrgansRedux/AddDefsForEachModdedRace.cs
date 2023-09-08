@@ -1,6 +1,6 @@
 ﻿namespace EvolvedOrgansRedux {
     public class AddDefsForEachModdedRace {
-        public AddDefsForEachModdedRace(string nameOfThisMod) {
+        public AddDefsForEachModdedRace() {
             //List of mods that shouldn't have any meaty parts.
             bool meatRecipeWasNotRemovedForCompatibilityReasons = Verse.DefDatabase<Verse.RecipeDef>.GetNamedSilentFail("EVOR_Production_Protein_Humie") != null;
             //Go through all the ThingDefs to find out which races exist
@@ -9,7 +9,7 @@
                 //If the race is Humanoid but not the base race of this game
                 if (def.race?.Humanlike == true && !def.defName.Equals("Human") && (def.modContentPack == null || !Singleton.Instance.forbiddenMods.Contains(def.modContentPack.Name))) { //Human stuff will just be solved with the XMLs.
                     try {
-                        new AddBodyParts(def.race, nameOfThisMod);
+                        new AddBodyParts(def.race, Singleton.Instance.NameOfThisMod);
                         if (meatRecipeWasNotRemovedForCompatibilityReasons) {
                             new AddMeatToRecipesFromModdedRace(def.race);
                             if (Verse.Prefs.LogVerbose)

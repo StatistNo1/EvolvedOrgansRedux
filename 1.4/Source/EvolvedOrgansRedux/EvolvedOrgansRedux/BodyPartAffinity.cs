@@ -7,7 +7,7 @@
             Heart
         }
         System.Collections.Generic.List<Verse.RecipeDef> RemoveImplantRecipesToAdd = new System.Collections.Generic.List<Verse.RecipeDef>();
-        public BodyPartAffinity(string nameOfThisMod) {
+        public BodyPartAffinity() {
             string newBodyPart = "";
             Verse.RecipeDef recipe = null;
             string modOfRecipe = "";
@@ -34,7 +34,7 @@
                     //Natural body parts can't be added. It's just how the game is coded.
                     if (bodypart != 0 &&
                         rd.workerClass == typeof(RimWorld.Recipe_InstallArtificialBodyPart) &&
-                        rd.modContentPack.Name != nameOfThisMod &&
+                        rd.modContentPack.Name != Singleton.Instance.NameOfThisMod &&
                         rd.recipeUsers != null &&
                         rd.IsSurgery &&
                         rd.defaultIngredientFilter.AnyAllowedDef != null &&
