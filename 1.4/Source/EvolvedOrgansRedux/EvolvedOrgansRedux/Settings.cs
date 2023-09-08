@@ -4,7 +4,7 @@
         public string ChosenWorkbench;
         public bool ImportantMessage20320905;
         public int AmountOfArms;
-        public System.Collections.Generic.List<string> ChoicesOfWorkbenches = new () { "Evolved Organs Redux" };
+        public System.Collections.Generic.List<string> ChoicesOfWorkbenches = new() { "Evolved Organs Redux" };
         //public System.Collections.Generic.List<int> ChoicesForAmountOfArms = new (){ 2, 4, 6, 8 };
         public override void ExposeData() {
             Verse.Scribe_Values.Look(ref BodyPartAffinity, "BodyPartAffinity");
@@ -13,14 +13,16 @@
             //Verse.Scribe_Values.Look(ref AmountOfArms, "AmountOfArms", defaultValue: 4);
             base.ExposeData();
         }
+        public Settings() {
+            if (ChoicesOfWorkbenches.Contains(ChosenWorkbench))
+                ChosenWorkbench = ChoicesOfWorkbenches[0];
+        }
     }
 
     public class EvolvedOrgansReduxSettings : Verse.Mod {
-        Settings settings;
+        readonly Settings settings;
         public EvolvedOrgansReduxSettings(Verse.ModContentPack content) : base(content) {
             this.settings = GetSettings<Settings>();
-            if (!settings.ChoicesOfWorkbenches.Contains(settings.ChosenWorkbench))
-                settings.ChosenWorkbench = settings.ChoicesOfWorkbenches[0];
         }
         public override void DoSettingsWindowContents(UnityEngine.Rect inRect) {
             Verse.Listing_Standard listingStandard = new Verse.Listing_Standard();
@@ -30,12 +32,10 @@
             listingStandard.CheckboxLabeled("BodyPartAffinity", ref settings.BodyPartAffinity);
             listingStandard.GapLine();
             listingStandard.Label("Check of which mod the organ workbench should be used to create EvolvedOrgansRedux implants.\nThe game has to be restarted for this change to take effect.");
-            int num = 0;
-            foreach (string s in settings.ChoicesOfWorkbenches) {
-                if (listingStandard.RadioButton(settings.ChoicesOfWorkbenches[num], settings.ChoicesOfWorkbenches[num] == settings.ChosenWorkbench, tabIn: 30f)) {
-                    settings.ChosenWorkbench = settings.ChoicesOfWorkbenches[num];
+            for (int i = 0; i < settings.ChoicesOfWorkbenches.Count; i++) {
+                if (listingStandard.RadioButton(settings.ChoicesOfWorkbenches[i], settings.ChoicesOfWorkbenches[i] == settings.ChosenWorkbench, tabIn: 30f)) {
+                    settings.ChosenWorkbench = settings.ChoicesOfWorkbenches[i];
                 }
-                num++;
             }
             listingStandard.GapLine();
             listingStandard.End();
