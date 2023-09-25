@@ -56,17 +56,6 @@
 		<addsHediff>EVOR_Hediff_Brain_NeuralHyperthreader</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Brain_NeuralHyperthreader</ThingDef><HediffDef>EVOR_Hediff_Brain_NeuralHyperthreader</HediffDef></descriptionHyperlinks>
 	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_Brain_NeuralHyperthreader</defName>
-		<label>&lt;color=#00FFF7&gt;remove neural hyperthreader&lt;/color&gt;</label>
-		<description>Remove neural hyperthreader.</description>
-		<jobString>Removing neural hyperthreader.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_Brain_NeuralHyperthreader</ThingDef>
-			<HediffDef>EVOR_Hediff_Brain_NeuralHyperthreader</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Brain_NeuralHyperthreader</removesHediff>
-	</RecipeDef>
 
 	<!-- butchers nails -->
 	<ThingDef ParentName="EVOR_Item_Base_500protein10mechanites">
@@ -125,17 +114,6 @@
 		<incompatibleWithHediffTags><li>EVOR_Brain_DangerousImplant</li></incompatibleWithHediffTags>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Brain_ButchersNails</ThingDef><HediffDef>EVOR_Hediff_Brain_ButchersNails</HediffDef></descriptionHyperlinks>
 	</RecipeDef>
-	<!--<RecipeDef ParentName="SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_Brain_ButchersNails</defName>
-		<label>&lt;color=#00FFF7&gt;remove butchers nails&lt;/color&gt;</label>
-		<description>Remove butchers nails.</description>
-		<jobString>Removing butchers nails.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_Brain_ButchersNails</ThingDef>
-			<HediffDef>EVOR_Hediff_Brain_ButchersNails</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Brain_ButchersNails</removesHediff>
-	</RecipeDef>-->
 
 	<!-- reptilian frontal cortex -->
 	<ThingDef ParentName="EVOR_Item_Base_500protein10mechanites">
@@ -203,16 +181,5 @@
 		<incompatibleWithHediffTags><li>EVOR_Brain_DangerousImplant</li></incompatibleWithHediffTags>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Brain_ReptilianFrontalCortex</ThingDef><HediffDef>EVOR_Hediff_Brain_ReptilianFrontalCortex</HediffDef></descriptionHyperlinks>
 	</RecipeDef>
-	<!--<RecipeDef ParentName="SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_Brain_ReptilianFrontalCortex</defName>
-		<label>&lt;color=#00FFF7&gt;remove reptilian frontal cortex&lt;/color&gt;</label>
-		<description>Remove reptilian frontal cortex.</description>
-		<jobString>Removing reptilian frontal cortex.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_Brain_ReptilianFrontalCortex</ThingDef>
-			<HediffDef>EVOR_Hediff_Brain_ReptilianFrontalCortex</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Brain_ReptilianFrontalCortex</removesHediff>
-	</RecipeDef>-->
 
 </Defs>

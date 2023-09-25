@@ -47,18 +47,6 @@
 			<HediffDef>EVOR_Hediff_Appendage_ExtradextrousArm</HediffDef>
 		</descriptionHyperlinks>
 	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_Appendage_ExtradextrousArm</defName>
-		<label>&lt;color=#00FFF7&gt;remove extradextrous appendage&lt;/color&gt;</label>
-		<description>Remove extradextrous appendage.</description>
-		<jobString>Removing extradextrous appendage.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_Appendage_ExtradextrousArm</ThingDef>
-			<HediffDef>EVOR_Hediff_Appendage_ExtradextrousArm</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Appendage_ExtradextrousArm</removesHediff>
-		<appliedOnFixedBodyParts><li>LowerShoulder</li></appliedOnFixedBodyParts>
-	</RecipeDef>
 	
 	<!-- rending claw -->
 	<ThingDef ParentName="EVOR_Item_Base_120protein2mechanites">
@@ -113,17 +101,6 @@
 		<addsHediff>EVOR_Hediff_Appendage_RendingClaw</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Appendage_RendingClaw</ThingDef><HediffDef>EVOR_Hediff_Appendage_RendingClaw</HediffDef></descriptionHyperlinks>
 	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_Hediff_RendingClaw</defName>
-		<label>&lt;color=#00FFF7&gt;remove rending claw&lt;/color&gt;</label>
-		<description>Remove rending claw.</description>
-		<jobString>Removing rending claw.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_Appendage_RendingClaw</ThingDef>
-			<HediffDef>EVOR_Hediff_Appendage_RendingClaw</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Appendage_RendingClaw</removesHediff>
-	</RecipeDef>
 	
 	<!-- high pressure pincer -->
 	<ThingDef ParentName="EVOR_Item_Base_120protein2mechanites">
@@ -175,14 +152,6 @@
 		<addsHediff>EVOR_Hediff_Appendage_HighPressurePincer</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Appendage_HighPressurePincer</ThingDef><HediffDef>EVOR_Hediff_Appendage_HighPressurePincer</HediffDef></descriptionHyperlinks>
 	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_Hediff_HighPressurePincer</defName>
-		<label>&lt;color=#00FFF7&gt;remove high pressure pincer&lt;/color&gt;</label>
-		<description>Remove high pressure pincer.</description>
-		<jobString>Removing high pressure pincer.</jobString>
-		<descriptionHyperlinks><ThingDef>EVOR_Item_Appendage_HighPressurePincer</ThingDef><HediffDef>EVOR_Hediff_Appendage_HighPressurePincer</HediffDef></descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Appendage_HighPressurePincer</removesHediff>
-	</RecipeDef>
 	
 	<!-- sonic impact mace -->
 	<ThingDef ParentName="EVOR_Item_Base_120protein2mechanites">
@@ -201,7 +170,7 @@
 		<defName>EVOR_Hediff_Appendage_SonicImpactMace</defName>
 		<label>&lt;color=#00FFF7&gt;sonic impact mace&lt;/color&gt;</label>
 		<labelNoun>sonic impact mace</labelNoun>
-		<addedPartProps><partEfficiency>1.25</partEfficiency><isGoodWeapon>true</isGoodWeapon></addedPartProps>
+		<addedPartProps><partEfficiency>1</partEfficiency><isGoodWeapon>true</isGoodWeapon></addedPartProps>
 		<spawnThingOnRemoved>EVOR_Item_Appendage_SonicImpactMace</spawnThingOnRemoved>
 		<comps>
 			<li Class="HediffCompProperties_VerbGiver">
@@ -234,14 +203,6 @@
 		<appliedOnFixedBodyParts><li>Shoulder</li></appliedOnFixedBodyParts>
 		<addsHediff>EVOR_Hediff_Appendage_SonicImpactMace</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Appendage_SonicImpactMace</ThingDef><HediffDef>EVOR_Hediff_Appendage_SonicImpactMace</HediffDef></descriptionHyperlinks>
-	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_Hediff_SonicImpactMace</defName>
-		<label>&lt;color=#00FFF7&gt;remove sonic impact mace&lt;/color&gt;</label>
-		<description>Remove sonic impact mace.</description>
-		<jobString>Removing sonic impact mace.</jobString>
-		<descriptionHyperlinks><ThingDef>EVOR_Item_Appendage_SonicImpactMace</ThingDef><HediffDef>EVOR_Hediff_Appendage_SonicImpactMace</HediffDef></descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Appendage_SonicImpactMace</removesHediff>
 	</RecipeDef>
 
 	<!-- venopillar arm -->
@@ -295,17 +256,6 @@
 		<addsHediff>EVOR_Hediff_Appendage_VenopillarArm</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Appendage_VenopillarArm</ThingDef><HediffDef>EVOR_Hediff_Appendage_VenopillarArm</HediffDef></descriptionHyperlinks>
 	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_VenopillarArm</defName>
-		<label>&lt;color&gt;remove venopillar arm&lt;/color&gt;</label>
-		<description>Remove venopillar arm.</description>
-		<jobString>Removing venopillar arm.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_Appendage_VenopillarArm</ThingDef>
-			<HediffDef>EVOR_Hediff_Appendage_VenopillarArm</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Appendage_VenopillarArm</removesHediff>
-	</RecipeDef>
 	
 	<!-- frost mantis hook -->
 	<ThingDef ParentName="EVOR_Item_Base_150protein3mechanites">
@@ -357,17 +307,6 @@
 		<appliedOnFixedBodyParts><li>Shoulder</li></appliedOnFixedBodyParts>
 		<addsHediff>EVOR_Hediff_Appendage_FrostMantisHook</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Appendage_FrostMantisHook</ThingDef><HediffDef>EVOR_Hediff_Appendage_FrostMantisHook</HediffDef></descriptionHyperlinks>
-	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_FrostMantisHook</defName>
-		<label>&lt;color&gt;remove frost mantis hook&lt;/color&gt;</label>
-		<description>Remove frost mantis hook.</description>
-		<jobString>Removing frost mantis hook.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_Appendage_FrostMantisHook</ThingDef>
-			<HediffDef>EVOR_Hediff_Appendage_FrostMantisHook</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Appendage_FrostMantisHook</removesHediff>
 	</RecipeDef>
 	
 	<!-- salamander whip -->
@@ -421,17 +360,6 @@
 		<addsHediff>EVOR_Hediff_Appendage_SalamanderWhip</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Appendage_SalamanderWhip</ThingDef><HediffDef>EVOR_Hediff_Appendage_SalamanderWhip</HediffDef></descriptionHyperlinks>
 	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_SalamanderWhip</defName>
-		<label>&lt;color&gt;remove salamander whip&lt;/color&gt;</label>
-		<description>Remove salamander whip.</description>
-		<jobString>Removing salamander whip.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_Appendage_SalamanderWhip</ThingDef>
-			<HediffDef>EVOR_Hediff_Appendage_SalamanderWhip</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Appendage_SalamanderWhip</removesHediff>
-	</RecipeDef>
 	
 	<!-- ossified bone saber -->
 	<ThingDef ParentName="EVOR_Item_Base_120protein2mechanites">
@@ -482,17 +410,6 @@
 		<appliedOnFixedBodyParts><li>Shoulder</li><li>Leg</li></appliedOnFixedBodyParts>
 		<addsHediff>EVOR_Hediff_Appendage_OssifiedBoneSaber</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Appendage_OssifiedBoneSaber</ThingDef><HediffDef>EVOR_Hediff_Appendage_OssifiedBoneSaber</HediffDef></descriptionHyperlinks>
-	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_Hediff_Appendage_OssifiedBoneSaber</defName>
-		<label>&lt;color=#00FFF7&gt;remove ossified bone saber&lt;/color&gt;</label>
-		<description>Remove ossified bone saber.</description>
-		<jobString>Removing ossified bone saber.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_Appendage_OssifiedBoneSaber</ThingDef>
-			<HediffDef>EVOR_Hediff_Appendage_OssifiedBoneSaber</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Appendage_OssifiedBoneSaber</removesHediff>
 	</RecipeDef>
 	
 	<!-- tri plated limb -->	
@@ -551,14 +468,6 @@
 		<addsHediff>EVOR_Hediff_Appendage_TriPlacedLimb</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Appendage_TriPlacedLimb</ThingDef><HediffDef>EVOR_Hediff_Appendage_TriPlacedLimb</HediffDef></descriptionHyperlinks>
 	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_Hediff_TriPlacedLimb</defName>
-		<label>&lt;color=#00FFF7&gt;remove tri plated limb&lt;/color&gt;</label>
-		<description>Remove tri plated limb.</description>
-		<jobString>Removing tri plated limb.</jobString>
-		<descriptionHyperlinks><ThingDef>EVOR_Item_Appendage_TriPlacedLimb</ThingDef><HediffDef>EVOR_Hediff_Appendage_TriPlacedLimb</HediffDef></descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Appendage_TriPlacedLimb</removesHediff>
-	</RecipeDef>
 	
 	<!-- reinforced leg -->
 	<ThingDef ParentName="EVOR_Item_Base_120protein2mechanites">
@@ -601,14 +510,6 @@
 		<appliedOnFixedBodyParts><li>Leg</li></appliedOnFixedBodyParts>
 		<addsHediff>EVOR_Hediff_Appendage_ReinforcedLeg</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Appendage_ReinforcedLeg</ThingDef><HediffDef>EVOR_Hediff_Appendage_ReinforcedLeg</HediffDef></descriptionHyperlinks>
-	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_Hediff_ReinforcedLeg</defName>
-		<label>&lt;color=#00FFF7&gt;remove reinforced leg&lt;/color&gt;</label>
-		<description>Remove reinforced leg.</description>
-		<jobString>Removing reinforced leg.</jobString>
-		<descriptionHyperlinks><ThingDef>EVOR_Item_Appendage_ReinforcedLeg</ThingDef><HediffDef>EVOR_Hediff_Appendage_ReinforcedLeg</HediffDef></descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Appendage_ReinforcedLeg</removesHediff>
 	</RecipeDef>
 
 	<!-- grasping leg -->
@@ -656,14 +557,6 @@
 		<addsHediff>EVOR_Hediff_Appendage_GraspingLeg</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Appendage_GraspingLeg</ThingDef><HediffDef>EVOR_Hediff_Appendage_GraspingLeg</HediffDef></descriptionHyperlinks>
 	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_Hediff_GraspingLeg</defName>
-		<label>&lt;color=#00FFF7&gt;remove grasping leg&lt;/color&gt;</label>
-		<description>Remove grasping leg.</description>
-		<jobString>Removing grasping leg.</jobString>
-		<descriptionHyperlinks><ThingDef>EVOR_Item_Appendage_GraspingLeg</ThingDef><HediffDef>EVOR_Hediff_Appendage_GraspingLeg</HediffDef></descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Appendage_GraspingLeg</removesHediff>
-	</RecipeDef>
 
 	<!-- shire horse leg -->
 	<ThingDef ParentName="EVOR_Item_Base_120protein2mechanites">
@@ -709,17 +602,6 @@
 		<addsHediff>EVOR_Hediff_Appendage_ShireHorseLeg</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Appendage_ShireHorseLeg</ThingDef><HediffDef>EVOR_Hediff_Appendage_ShireHorseLeg</HediffDef></descriptionHyperlinks>
 	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_ShireHorseLeg</defName>
-		<label>&lt;color&gt;remove shire horse leg&lt;/color&gt;</label>
-		<description>Remove shire horse leg.</description>
-		<jobString>Removing shire horse leg.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_Appendage_ShireHorseLeg</ThingDef>
-			<HediffDef>EVOR_Hediff_Appendage_ShireHorseLeg</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Appendage_ShireHorseLeg</removesHediff>
-	</RecipeDef>
 	
 	<!-- weigthed tail -->
 	<ThingDef ParentName="EVOR_Item_Base_120protein2mechanites">
@@ -742,12 +624,6 @@
 		<spawnThingOnRemoved>EVOR_Item_Appendage_WeightedTail</spawnThingOnRemoved>
 		<stages>
 			<li>
-				<capMods>
-					<li>
-						<capacity>Moving</capacity>
-						<offset>0.20</offset>
-					</li>
-				</capMods>
 				<statOffsets>
                     <MeleeDodgeChance>3</MeleeDodgeChance>
 				</statOffsets>
@@ -771,17 +647,6 @@
 		<addsHediff>EVOR_Hediff_Appendage_WeightedTail</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Appendage_WeightedTail</ThingDef><HediffDef>EVOR_Hediff_Appendage_WeightedTail</HediffDef></descriptionHyperlinks>
 	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_WeightedTail</defName>
-		<label>&lt;color&gt;remove weigthed tail&lt;/color&gt;</label>
-		<description>Remove weigthed tail.</description>
-		<jobString>Removing weigthed tail.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_Appendage_WeightedTail</ThingDef>
-			<HediffDef>EVOR_Hediff_Appendage_WeightedTail</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Appendage_WeightedTail</removesHediff>
-	</RecipeDef>
 	
 	<!-- venomous stinger -->
 	<ThingDef ParentName="EVOR_Item_Base_120protein2mechanites">
@@ -800,7 +665,7 @@
 		<defName>EVOR_Hediff_Tail_VenomousStinger</defName>
 		<label>&lt;color=#00FFF7&gt;venomous stinger&lt;/color&gt;</label>
 		<labelNoun>venomous stinger</labelNoun>
-		<addedPartProps><partEfficiency>1.25</partEfficiency><isGoodWeapon>true</isGoodWeapon></addedPartProps>
+		<addedPartProps><partEfficiency>1.15</partEfficiency><isGoodWeapon>true</isGoodWeapon></addedPartProps>
 		<spawnThingOnRemoved>EVOR_Item_Tail_VenomousStinger</spawnThingOnRemoved>
 		<comps>
 			<li Class="HediffCompProperties_VerbGiver">
@@ -832,16 +697,5 @@
 		<fixedIngredientFilter><thingDefs><li>EVOR_Item_Tail_VenomousStinger</li></thingDefs></fixedIngredientFilter>
 		<addsHediff>EVOR_Hediff_Tail_VenomousStinger</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Tail_VenomousStinger</ThingDef><HediffDef>EVOR_Hediff_Tail_VenomousStinger</HediffDef></descriptionHyperlinks>
-	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_Tail_VenomousStinger</defName>
-		<label>&lt;color=#00FFF7&gt;remove venomous stinger&lt;/color&gt;</label>
-		<description>Remove venomous stinger.</description>
-		<jobString>Removing venomous stinger.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_Tail_VenomousStinger</ThingDef>
-			<HediffDef>EVOR_Hediff_Tail_VenomousStinger</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Tail_VenomousStinger</removesHediff>
 	</RecipeDef>
 </Defs>

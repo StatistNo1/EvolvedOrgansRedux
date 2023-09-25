@@ -16,10 +16,7 @@
 			<li Class="HediffCompProperties_PsychicHarmonizer">
 				<range>42</range>
 				<thought>EVOR_Thought_Royalty_NornCrown</thought>
-			</li>
-			<li Class="EvolvedOrgansRedux.EVOR_HediffCompProperties_ReplaceHediff">
-				<hediffDef>EVOR_Hediff_Sternum_NornCrown</hediffDef>
-			</li>
+			</li>^
 		</comps>
 		<description>Despite the name, the Norn Crown is actually a writing mass of psychicaly tuned flesh. Implanted in the sternum, it allows the user to change the moods of beings around them.</description>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Artifact_Royalty_NornCrown</ThingDef></descriptionHyperlinks>
@@ -40,9 +37,6 @@
 			<li Class="EvolvedOrgansRedux.EVOR_HediffCompProperties_AddHediffOnDakingDamage">
         		<hediff>EVOR_Other_PsychicInvisibility</hediff>
       		</li>
-			<li Class="EvolvedOrgansRedux.EVOR_HediffCompProperties_ReplaceHediff">
-				<hediffDef>EVOR_Hediff_Sternum_ReactiveShimmerworms</hediffDef>
-			</li>
 		</comps>
 		<description>Once these worms feel pain, they immediately make themselves psychically invisible to anyone around them. By melding their nervous system with the host, the worms now cause the host to be invisible whenever the host feels pain.</description>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Artifact_Royalty_ReactiveWorms</ThingDef></descriptionHyperlinks>

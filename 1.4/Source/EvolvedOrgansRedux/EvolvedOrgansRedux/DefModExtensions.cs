@@ -1,63 +1,57 @@
-﻿namespace EvolvedOrgansRedux {
-    public class AddAdditionalBodypartsAfterResearch : Verse.ResearchMod {
-        public Verse.ResearchProjectDef researchProjectDef;
-        public Verse.RecipeDef recipeDef;
-        public System.Collections.Generic.List<Verse.BodyPartDef> bodyPartDefs;
-        public override void Apply() {
-            //Need to check up on the Recipes added by BodyPartAffinity and see how that shit works out with this research. 
-            if (researchProjectDef.IsFinished) {
-                foreach (Verse.BodyPartDef bpd in bodyPartDefs) {
-                    //Add the BodyPartDef from the list to the recipe
-                    if (!recipeDef.appliedOnFixedBodyParts.Contains(bpd)) {
-                        recipeDef.appliedOnFixedBodyParts.Add(bpd);
-                        Singleton.Instance.bodyPartsToDelete.Add(new System.Tuple<Verse.RecipeDef, Verse.BodyPartDef>(recipeDef, bpd));
-                    }
-                    //Check if a non human race has a BodyPartDef that serves the same purpose as one of those in the list but with a different defName. (TailBone instead of Tail)
-                    foreach (Verse.ThingDef def in Verse.DefDatabase<Verse.ThingDef>.AllDefs) {
-                        if (def.race?.Humanlike == true && !def.defName.Equals("Human")) {
-                            foreach (Verse.BodyPartRecord bpr in def.race.body.AllParts) {
-                                if (bpr.def.defName.ToLower().Contains(bpd.defName.ToLower())) {
-                                    if (!recipeDef.appliedOnFixedBodyParts.Contains(bpr.def)) {
-                                        recipeDef.appliedOnFixedBodyParts.Add(bpr.def);
-                                        Singleton.Instance.bodyPartsToDelete.Add(new System.Tuple<Verse.RecipeDef, Verse.BodyPartDef>(recipeDef, bpr.def));
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            recipeDef.ClearCachedData();
-            recipeDef.ResolveReferences();
-        }
+﻿using System.Collections.Generic;
+using System.Linq;
+using Verse;
+
+namespace EvolvedOrgansRedux {
+    public class EVOR_DefModExtension_BodyDefToModify : DefModExtension {}
+    public class EVOR_DefModExtension_BodyPartDefToGetSurgeryDefsFromToModify : DefModExtension {
+        public BodyPartDef BodyPartDefToGetSurgeryDefsFromToModify;
     }
-    public class BodyPartAffiniyLowershoulders : Verse.ResearchMod {
-        public Verse.ResearchProjectDef researchProjectDef;
+    public class Finished_EVOR_Research_AddBodyPartToRecipeThatHasBodyPart : ResearchMod {
+        public BodyPartDef BodyPartsToCopyFrom;
+        public BodyPartDef BodyPartsToCopyTo;
+        private bool AlreadyApplied = false;
         public override void Apply() {
-            if (researchProjectDef.IsFinished) {
-                foreach (Verse.RecipeDef rd in Singleton.Instance.AddLowershouldersToRecipedef) {
-                    rd.appliedOnFixedBodyParts.Add(DefOf.LowerShoulder);
-                }
+            if (!AlreadyApplied && Settings.RequireResearchProject) {
+                BodyPartAffinity.AddEVORBodyPartsToRecipes(BodyPartsToCopyFrom, BodyPartsToCopyTo);
+                AlreadyApplied = true;
             }
         }
     }
-    public class BodyPartAffiniyLeftchestcavity : Verse.ResearchMod {
-        public Verse.ResearchProjectDef researchProjectDef;
+    public class Finished_EVOR_Research_AddBodyPartsToEVORRecipe : ResearchMod {
+        public List<BodyPartDef> EligibleBodyParts;
+        public List<RecipeDef> RecipeDefsToModify;
+        private bool AlreadyApplied = false;
         public override void Apply() {
-            if (researchProjectDef.IsFinished) {
-                foreach (Verse.RecipeDef rd in Singleton.Instance.AddLeftchestcavityToRecipedef) {
-                    rd.appliedOnFixedBodyParts.Add(DefOf.BodyCavity1);
-                }
+            if (!AlreadyApplied && Settings.RequireResearchProject) {
+                foreach (RecipeDef recipeDefToModify in RecipeDefsToModify)
+                    foreach (BodyPartDef bodyPartToAdd in EligibleBodyParts)
+                        //Makes sure that bodyparts that fulfil the same purpose are also added to the Recipe. Like tails from other mods
+                        foreach (BodyPartDef td in DefDatabase < BodyPartDef>.AllDefs.Where(e => e.defName.Contains(bodyPartToAdd.defName)))
+                            recipeDefToModify.appliedOnFixedBodyParts.Add(td);
+                AlreadyApplied = true;
             }
         }
     }
-    public class BodyPartAffiniyRightchestcavity : Verse.ResearchMod {
-        public Verse.ResearchProjectDef researchProjectDef;
+    public class Finished_EVOR_Research_AddGroupsAndTags : ResearchMod {
+        public BodyPartDef BodyPart;
+        public List<BodyPartTagDef> TagsToAdd;
+        public List<BodyPartGroupDef> GroupsToAdd;
+        public bool AlreadyApplied = false;
         public override void Apply() {
-            if (researchProjectDef.IsFinished) {
-                foreach (Verse.RecipeDef rd in Singleton.Instance.AddRightchestcavityToRecipedef) {
-                    rd.appliedOnFixedBodyParts.Add(DefOf.BodyCavity2);
+            if (!AlreadyApplied && Settings.RequireResearchProject) {
+                Singleton.Instance.BodyPartsToReset.Add(this);
+                BodyPart.tags.AddRange(TagsToAdd);
+                foreach (BodyDef bodyDef in DefDatabase<BodyDef>.AllDefs.Where(e => e.HasModExtension<EVOR_DefModExtension_BodyDefToModify>())) {
+                    List<BodyPartRecord> PartsWithDefs = bodyDef.GetPartsWithDef(BodyPart);
+                    foreach (BodyPartTagDef tag in TagsToAdd)
+                        if (bodyDef.cachedPartsByTag.ContainsKey(tag))
+                            bodyDef.cachedPartsByTag[tag].AddRange(PartsWithDefs);
+                    foreach (BodyPartRecord bpr in PartsWithDefs)
+                        bpr.groups.AddRange(GroupsToAdd);
                 }
+                Singleton.Instance.FillListsOfBodyPartTagsToRecalculate();
+                AlreadyApplied = true;
             }
         }
     }

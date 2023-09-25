@@ -19,11 +19,6 @@
 				</statOffsets>
 			</li>
 		</stages>
-		<comps>
-			<li Class="EvolvedOrgansRedux.EVOR_HediffCompProperties_ReplaceHediff">
-				<hediffDef>EVOR_Hediff_Protection_Skull_PsychicResonanceTissue</hediffDef>
-			</li>
-		</comps>
 		<description>By placing a layer of psychically sensitive tissue around the skull, the host becomes more attuned to psychic fields, allowing them to cast more powers before frying.</description>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Skull_Resonance</ThingDef></descriptionHyperlinks>
 	</HediffDef>

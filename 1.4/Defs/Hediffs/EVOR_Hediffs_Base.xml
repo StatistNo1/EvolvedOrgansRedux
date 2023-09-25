@@ -33,9 +33,4 @@
 	<RecipeDef Name="EVOR_SurgeryInstallBodyPartArtificialBase" ParentName="EVOR_SurgeryInstallImplantBase" Abstract="True">
 		<workerClass>Recipe_InstallArtificialBodyPart</workerClass>
 	</RecipeDef>
-	
-	
-	<RecipeDef Name="EVOR_SurgeryRemoveImplantBase" ParentName="SurgeryRemoveImplantBase" Abstract="True">
-		<workerClass>EvolvedOrgansRedux.Recipe_RemoveImplant</workerClass>
-	</RecipeDef>
 </Defs>

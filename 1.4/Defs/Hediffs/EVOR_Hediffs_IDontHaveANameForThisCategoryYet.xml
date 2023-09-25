@@ -49,17 +49,6 @@
 		<addsHediff>EVOR_Hediff_Sternum_PlagueLesions</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Sternum_PlagueLesions</ThingDef><HediffDef>EVOR_Hediff_Sternum_PlagueLesions</HediffDef></descriptionHyperlinks>
 	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_Sternum_PlagueLesions</defName>
-		<label>&lt;color=#00FFF7&gt;remove plague lesions&lt;/color&gt;</label>
-		<description>Remove plague lesions.</description>
-		<jobString>Removing plague lesions.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_Sternum_PlagueLesions</ThingDef>
-			<HediffDef>EVOR_Hediff_Sternum_PlagueLesions</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Sternum_PlagueLesions</removesHediff>
-	</RecipeDef>
 
 	<!-- reinforced tortoise shell -->
 	<ThingDef ParentName="EVOR_Item_Base_170protein4mechanites">
@@ -110,17 +99,6 @@
 		<fixedIngredientFilter><thingDefs><li>EVOR_Item_Sternum_ReinforcedTortoiseShell</li></thingDefs></fixedIngredientFilter>
 		<addsHediff>EVOR_Hediff_Sternum_ReinforcedTortoiseShell</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Sternum_ReinforcedTortoiseShell</ThingDef><HediffDef>EVOR_Hediff_Sternum_ReinforcedTortoiseShell</HediffDef></descriptionHyperlinks>
-	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_Sternum_ReinforcedTortoiseShell</defName>
-		<label>&lt;color=#00FFF7&gt;remove reinforced tortoise shell&lt;/color&gt;</label>
-		<description>Remove reinforced tortoise shell.</description>
-		<jobString>Removing reinforced tortoise shell.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_Sternum_ReinforcedTortoiseShell</ThingDef>
-			<HediffDef>EVOR_Hediff_Sternum_ReinforcedTortoiseShell</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Sternum_ReinforcedTortoiseShell</removesHediff>
 	</RecipeDef>
 
 </Defs>

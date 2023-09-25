@@ -1,36 +1,13 @@
 ﻿using Verse;
 
 namespace EvolvedOrgansRedux {
-    public class EVOR_HediffCompProperties_ReplaceHediff : Verse.HediffCompProperties {
-        public Verse.HediffDef hediffDef;
-        public EVOR_HediffCompProperties_ReplaceHediff() {
-			compClass = typeof(EVOR_HediffComp_ReplaceHediff);
-		}
-    }
-    public class EVOR_HediffComp_ReplaceHediff : Verse.HediffComp {
-        public EVOR_HediffCompProperties_ReplaceHediff Props => (EVOR_HediffCompProperties_ReplaceHediff)props;
-        public override void CompPostTick(ref float severityAdjustment) {
-            try {
-                Pawn.health.AddHediff(Props.hediffDef, parent.Part);
-                Pawn.health.RemoveHediff(parent);
-                Verse.Log.Message("Replaced " + parent.def.defName + " with " + Props.hediffDef.defName);
-            } catch (System.Exception e) {
-                try {
-                    Verse.Log.Error("EVOR: Error when replacing " + parent.def.defName + " with " + Props.hediffDef.defName + "\n" + e);
-                } catch {
-                    Verse.Log.Error("EVOR: Critical error when replacing something.\n" + e);
-                }
-            }
-
-        }
-    }
-    public class EVOR_HediffCompProperties_ButchersNailsBloodlust : Verse.HediffCompProperties {
+    public class EVOR_HediffCompProperties_ButchersNailsBloodlust : HediffCompProperties {
 		public float daysUntilBerserk = 7;
         public EVOR_HediffCompProperties_ButchersNailsBloodlust() {
             compClass = typeof(EVOR_HediffComp_ButchersNailsBloodlust);
         }
     }
-    public class EVOR_HediffComp_ButchersNailsBloodlust : Verse.HediffComp {
+    public class EVOR_HediffComp_ButchersNailsBloodlust : HediffComp {
 		private float ticksUntilBreakBase => Props.daysUntilBerserk * 60000f;
 		private float ticksUntilBreakCurrent;
         private int amountOfKilledHumanlikes;
@@ -40,8 +17,8 @@ namespace EvolvedOrgansRedux {
             amountOfKilledHumanlikes = (int)Pawn.records.GetValue(RimWorld.RecordDefOf.KillsHumanlikes);
         }
         public override void CompExposeData() {
-            Verse.Scribe_Values.Look(ref ticksUntilBreakCurrent, "ticksUntilBreakCurrent");
-            Verse.Scribe_Values.Look(ref amountOfKilledHumanlikes, "amountOfKilledHumanlikes");
+            Scribe_Values.Look(ref ticksUntilBreakCurrent, "ticksUntilBreakCurrent");
+            Scribe_Values.Look(ref amountOfKilledHumanlikes, "amountOfKilledHumanlikes");
         }
         public override void CompPostTick(ref float severityAdjustment) {
             if (ticksUntilBreakCurrent-- % 2500 != 0) return;
@@ -56,13 +33,13 @@ namespace EvolvedOrgansRedux {
         }
         public override string CompLabelInBracketsExtra => (ticksUntilBreakCurrent / ticksUntilBreakBase).ToStringPercent();
     }
-    public class EVOR_HediffCompProperties_PurglesRot : Verse.HediffCompProperties {
+    public class EVOR_HediffCompProperties_PurglesRot : HediffCompProperties {
         public Verse.HediffDef hediffDef;
         public EVOR_HediffCompProperties_PurglesRot() {
             compClass = typeof(EVOR_HediffComp_PurglesRot);
         }
     }
-    public class EVOR_HediffComp_PurglesRot : Verse.HediffComp {
+    public class EVOR_HediffComp_PurglesRot : HediffComp {
         public EVOR_HediffCompProperties_PurglesRot Props => (EVOR_HediffCompProperties_PurglesRot)props;
         public override void Notify_PawnPostApplyDamage(DamageInfo dinfo, float totalDamageDealt) {
             //If the damage dealer is a human, attacked in melee range and has not this Hediff, apply Hediff.
@@ -81,13 +58,13 @@ namespace EvolvedOrgansRedux {
             }
         }
     }
-    public class EVOR_HediffCompProperties_AddTrait : Verse.HediffCompProperties {
+    public class EVOR_HediffCompProperties_AddTrait : HediffCompProperties {
         public RimWorld.TraitDef traitDef;
         public EVOR_HediffCompProperties_AddTrait() {
             compClass = typeof(EVOR_HediffComp_AddTrait);
         }
     }
-    public class EVOR_HediffComp_AddTrait : Verse.HediffComp {
+    public class EVOR_HediffComp_AddTrait : HediffComp {
         public EVOR_HediffCompProperties_AddTrait Props => (EVOR_HediffCompProperties_AddTrait)props;
         public override void CompPostPostAdd(DamageInfo? dinfo) {
             Pawn.story.traits.allTraits.Add(new RimWorld.Trait() { def = Props.traitDef });
@@ -103,7 +80,7 @@ namespace EvolvedOrgansRedux {
             compClass = typeof(EVOR_HediffComp_ManipulateSkills);
         }
     }
-    public class EVOR_HediffComp_ManipulateSkills : Verse.HediffComp {
+    public class EVOR_HediffComp_ManipulateSkills : HediffComp {
         int timer = 15000;
         public EVOR_HediffCompProperty_ManipulateSkills Props => (EVOR_HediffCompProperty_ManipulateSkills)props;
         public override void CompPostPostAdd(Verse.DamageInfo? dinfo) {

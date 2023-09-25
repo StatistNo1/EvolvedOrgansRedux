@@ -47,17 +47,6 @@
 		<addsHediff>EVOR_Hediff_Back_FeatheredWings</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Back_FeatheredWings</ThingDef><HediffDef>EVOR_Hediff_Back_FeatheredWings</HediffDef></descriptionHyperlinks>
 	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_Back_FeatheredWings</defName>
-		<label>&lt;color=#00FFF7&gt;remove feathered wings&lt;/color&gt;</label>
-		<description>Remove feathered wings.</description>
-		<jobString>Removing feathered wings.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_Back_FeatheredWings</ThingDef>
-			<HediffDef>EVOR_Hediff_Back_FeatheredWings</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Back_FeatheredWings</removesHediff>
-	</RecipeDef>
 
 	<!-- leathery wings -->
 	<ThingDef ParentName="EVOR_Item_Base_300protein6mechanites">
@@ -102,17 +91,6 @@
 		<fixedIngredientFilter><thingDefs><li>EVOR_Item_Back_LeatheryWings</li></thingDefs></fixedIngredientFilter>
 		<addsHediff>EVOR_Hediff_Back_LeatheryWings</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Back_LeatheryWings</ThingDef><HediffDef>EVOR_Hediff_Back_LeatheryWings</HediffDef></descriptionHyperlinks>
-	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_Back_LeatheryWings</defName>
-		<label>&lt;color=#00FFF7&gt;remove leathery wings&lt;/color&gt;</label>
-		<description>Remove leathery wings.</description>
-		<jobString>Removing leathery wings.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_Back_LeatheryWings</ThingDef>
-			<HediffDef>EVOR_Hediff_Back_LeatheryWings</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Back_LeatheryWings</removesHediff>
 	</RecipeDef>
 	
 	<!-- tentacle cluster -->
@@ -161,17 +139,6 @@
 		<addsHediff>EVOR_Hediff_Back_TentacleCluster</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Back_TentacleCluster</ThingDef><HediffDef>EVOR_Hediff_Back_TentacleCluster</HediffDef></descriptionHyperlinks>
 	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_Back_TentacleCluster</defName>
-		<label>&lt;color=#00FFF7&gt;remove tentacle cluster&lt;/color&gt;</label>
-		<description>Remove tentacle cluster.</description>
-		<jobString>Removing tentacle cluster.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_Back_TentacleCluster</ThingDef>
-			<HediffDef>EVOR_Hediff_Back_TentacleCluster</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Back_TentacleCluster</removesHediff>
-	</RecipeDef>
 	
 	<!-- musculature braces-->
 	<ThingDef ParentName="EVOR_Item_Base_170protein4mechanites">
@@ -216,17 +183,6 @@
 		<fixedIngredientFilter><thingDefs><li>EVOR_Item_Back_MusculatureBraces</li></thingDefs></fixedIngredientFilter>
 		<addsHediff>EVOR_Hediff_Back_MusculatureBraces</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Back_MusculatureBraces</ThingDef><HediffDef>EVOR_Hediff_Back_MusculatureBraces</HediffDef></descriptionHyperlinks>
-	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_Back_MusculatureBraces</defName>
-		<label>&lt;color=#00FFF7&gt;remove musculature braces&lt;/color&gt;</label>
-		<description>Remove musculature braces.</description>
-		<jobString>Removing musculature braces.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_Back_MusculatureBraces</ThingDef>
-			<HediffDef>EVOR_Hediff_Back_MusculatureBraces</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Back_MusculatureBraces</removesHediff>
 	</RecipeDef>
 
 	<!-- pelt growth -->
@@ -273,17 +229,6 @@
 		<addsHediff>EVOR_Hediff_Back_PeltGrowth</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Back_PeltGrowth</ThingDef><HediffDef>EVOR_Hediff_Back_PeltGrowth</HediffDef></descriptionHyperlinks>
 	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_Back_PeltGrowth</defName>
-		<label>&lt;color=#00FFF7&gt;remove pelt growth&lt;/color&gt;</label>
-		<description>Remove pelt growth.</description>
-		<jobString>Removing pelt growth.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_Back_PeltGrowth</ThingDef>
-			<HediffDef>EVOR_Hediff_Back_PeltGrowth</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Back_PeltGrowth</removesHediff>
-	</RecipeDef>
 
 	<!-- water filled growth -->
 	<ThingDef ParentName="EVOR_Item_Base_170protein4mechanites">
@@ -328,16 +273,5 @@
 		<fixedIngredientFilter><thingDefs><li>EVOR_Item_Back_WaterFilledGrowth</li></thingDefs></fixedIngredientFilter>
 		<addsHediff>EVOR_Hediff_Back_WaterFilledGrowth</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_Back_WaterFilledGrowth</ThingDef><HediffDef>EVOR_Hediff_Back_WaterFilledGrowth</HediffDef></descriptionHyperlinks>
-	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_Back_WaterFilledGrowth</defName>
-		<label>&lt;color=#00FFF7&gt;remove water filled growth&lt;/color&gt;</label>
-		<description>Remove water filled growth.</description>
-		<jobString>Removing water filled growth.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_Back_WaterFilledGrowth</ThingDef>
-			<HediffDef>EVOR_Hediff_Back_WaterFilledGrowth</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_Back_WaterFilledGrowth</removesHediff>
 	</RecipeDef>
 </Defs>
