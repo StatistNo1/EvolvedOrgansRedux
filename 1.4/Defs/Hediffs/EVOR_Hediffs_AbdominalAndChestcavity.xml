@@ -51,17 +51,6 @@
 		<descriptionHyperlinks><ThingDef>EVOR_Item_AbdominalAndChestcavity_ExtraNanofilterLung</ThingDef><HediffDef>EVOR_Hediff_AbdominalAndChestcavity_ExtraNanofilterLung</HediffDef></descriptionHyperlinks>
 		<researchPrerequisite>EVOR_Research_AdditionalOrgans</researchPrerequisite>
 	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_AbdominalAndChestcavity_ExtraNanofilterLung</defName>
-		<label>&lt;color=#00FFF7&gt;remove extra nanofilter lung&lt;/color&gt;</label>
-		<description>Remove extra nanofilter lung.</description>
-		<jobString>Removing extra nanofilter lung.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_AbdominalAndChestcavity_ExtraNanofilterLung</ThingDef>
-			<HediffDef>EVOR_Hediff_AbdominalAndChestcavity_ExtraNanofilterLung</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_AbdominalAndChestcavity_ExtraNanofilterLung</removesHediff>
-	</RecipeDef>
 
 	<!-- auxilary heart -->
 	<ThingDef ParentName="EVOR_Item_Base_120protein2mechanites">
@@ -114,17 +103,6 @@
 		<descriptionHyperlinks><ThingDef>EVOR_Item_AbdominalAndChestcavity_AuxilaryHeart</ThingDef><HediffDef>EVOR_Hediff_AbdominalAndChestcavity_AuxilaryHeart</HediffDef></descriptionHyperlinks>
 		<researchPrerequisite>EVOR_Research_AdditionalOrgans</researchPrerequisite>
 	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_AbdominalAndChestcavity_AuxilaryHeart</defName>
-		<label>&lt;color=#00FFF7&gt;remove auxilary heart&lt;/color&gt;</label>
-		<description>Remove auxilary heart.</description>
-		<jobString>Removing auxilary heart.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_AbdominalAndChestcavity_AuxilaryHeart</ThingDef>
-			<HediffDef>EVOR_Hediff_AbdominalAndChestcavity_AuxilaryHeart</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_AbdominalAndChestcavity_AuxilaryHeart</removesHediff>
-	</RecipeDef>
 
 	<!-- combat serum gland -->
 	<ThingDef ParentName="EVOR_Item_Base_120protein2mechanites">
@@ -172,17 +150,6 @@
 		<descriptionHyperlinks><ThingDef>EVOR_Item_AbdominalAndChestcavity_CombatSerumGland</ThingDef><HediffDef>EVOR_Hediff_AbdominalAndChestcavity_CombatSerumGland</HediffDef></descriptionHyperlinks>
 		<researchPrerequisite>EVOR_Research_AdditionalOrgans</researchPrerequisite>
 	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_AbdominalAndChestcavity_CombatSerumGland</defName>
-		<label>&lt;color=#00FFF7&gt;remove combat serum gland&lt;/color&gt;</label>
-		<description>Remove combat serum gland.</description>
-		<jobString>Removing combat serum gland.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_AbdominalAndChestcavity_CombatSerumGland</ThingDef>
-			<HediffDef>EVOR_Hediff_AbdominalAndChestcavity_CombatSerumGland</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_AbdominalAndChestcavity_CombatSerumGland</removesHediff>
-	</RecipeDef>
 
 	<!-- hormone regulator -->
 	<ThingDef ParentName="EVOR_Item_Base_120protein2mechanites">
@@ -227,17 +194,6 @@
 		<addsHediff>EVOR_Hediff_AbdominalAndChestcavity_HormoneRegulator</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_AbdominalAndChestcavity_HormoneRegulator</ThingDef><HediffDef>EVOR_Hediff_AbdominalAndChestcavity_HormoneRegulator</HediffDef></descriptionHyperlinks>
 		<researchPrerequisite>EVOR_Research_AdditionalOrgans</researchPrerequisite>
-	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_AbdominalAndChestcavity_HormoneRegulator</defName>
-		<label>&lt;color=#00FFF7&gt;remove hormone regulator&lt;/color&gt;</label>
-		<description>Remove hormone regulator.</description>
-		<jobString>Removing hormone regulator.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_AbdominalAndChestcavity_HormoneRegulator</ThingDef>
-			<HediffDef>EVOR_Hediff_AbdominalAndChestcavity_HormoneRegulator</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_AbdominalAndChestcavity_HormoneRegulator</removesHediff>
 	</RecipeDef>
 
 	<!-- lymphatic proliferator -->
@@ -291,17 +247,6 @@
 		<descriptionHyperlinks><ThingDef>EVOR_Item_AbdominalAndChestcavity_LymphaticProliferator</ThingDef><HediffDef>EVOR_Hediff_AbdominalAndChestcavity_LymphaticProliferator</HediffDef></descriptionHyperlinks>
 		<researchPrerequisite>EVOR_Research_AdditionalOrgans</researchPrerequisite>
 	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_AbdominalAndChestcavity_LymphaticProliferator</defName>
-		<label>&lt;color=#00FFF7&gt;remove lymphatic proliferator&lt;/color&gt;</label>
-		<description>Remove lymphatic proliferator.</description>
-		<jobString>Removing lymphatic proliferator.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_AbdominalAndChestcavity_LymphaticProliferator</ThingDef>
-			<HediffDef>EVOR_Hediff_AbdominalAndChestcavity_LymphaticProliferator</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_AbdominalAndChestcavity_LymphaticProliferator</removesHediff>
-	</RecipeDef>
 
 	<!-- ras vacoule -->
 	<ThingDef ParentName="EVOR_Item_Base_120protein2mechanites">
@@ -339,17 +284,6 @@
 		<addsHediff>EVOR_Hediff_AbdominalAndChestcavity_RasVacoule</addsHediff>
 		<descriptionHyperlinks><ThingDef>EVOR_Item_AbdominalAndChestcavity_RasVacoule</ThingDef><HediffDef>EVOR_Hediff_AbdominalAndChestcavity_RasVacoule</HediffDef></descriptionHyperlinks>
 		<researchPrerequisite>EVOR_Research_AdditionalOrgans</researchPrerequisite>
-	</RecipeDef>
-	<RecipeDef ParentName="EVOR_SurgeryRemoveImplantBase">
-		<defName>EVOR_SurgeryRemove_AbdominalAndChestcavity_RasVacoule</defName>
-		<label>&lt;color=#00FFF7&gt;remove ras vacoule&lt;/color&gt;</label>
-		<description>Remove ras vacoule.</description>
-		<jobString>Removing ras vacoule.</jobString>
-		<descriptionHyperlinks>
-			<ThingDef>EVOR_Item_AbdominalAndChestcavity_RasVacoule</ThingDef>
-			<HediffDef>EVOR_Hediff_AbdominalAndChestcavity_RasVacoule</HediffDef>
-		</descriptionHyperlinks>
-		<removesHediff>EVOR_Hediff_AbdominalAndChestcavity_RasVacoule</removesHediff>
 	</RecipeDef>
 
 </Defs>

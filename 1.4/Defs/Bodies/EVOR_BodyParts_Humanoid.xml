@@ -1,85 +1,113 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
-  <BodyPartDef>
-    <defName>LowerShoulder</defName>
-    <label>lower shoulder</label>
-    <hitPoints>30</hitPoints>
-    <skinCovered>true</skinCovered>
-	<canSuggestAmputation>true</canSuggestAmputation>
-    <destroyableByDamage>false</destroyableByDamage>
-    <tags>
-      <li>ManipulationLimbCore</li>
-    </tags>
-	<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
-	<frostbiteVulnerability>0</frostbiteVulnerability>
-	<canScarify>false</canScarify>
-  </BodyPartDef>
-  
-  <BodyPartDef>
-    <defName>BodyCavity1</defName>
-    <label>left chest cavity</label>
-    <hitPoints>15</hitPoints>
-    <skinCovered>true</skinCovered>
-	<canSuggestAmputation>true</canSuggestAmputation>
-    <destroyableByDamage>false</destroyableByDamage>
-	<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
-	<frostbiteVulnerability>0</frostbiteVulnerability>
-	<canScarify>false</canScarify>
-  </BodyPartDef>
-
-  <BodyPartDef>
-    <defName>BodyCavity2</defName>
-    <label>right chest cavity</label>
-    <hitPoints>15</hitPoints>
-    <skinCovered>true</skinCovered>
-	<canSuggestAmputation>true</canSuggestAmputation>
-    <destroyableByDamage>false</destroyableByDamage>
-	<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
-	<frostbiteVulnerability>0</frostbiteVulnerability>
-	<canScarify>false</canScarify>
-  </BodyPartDef>
-
-  <BodyPartDef>
-    <defName>BodyCavityA</defName>
-    <label>abdominal cavity</label>
-    <hitPoints>15</hitPoints>
-    <skinCovered>true</skinCovered>
-	<canSuggestAmputation>true</canSuggestAmputation>
-    <destroyableByDamage>false</destroyableByDamage>
-	<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
-	<frostbiteVulnerability>0</frostbiteVulnerability>
-	<canScarify>false</canScarify>
-  </BodyPartDef>
-
-  <BodyPartDef>
-    <defName>Back</defName>
-    <label>back</label>
-    <hitPoints>20</hitPoints>
-    <skinCovered>true</skinCovered>
-	<canSuggestAmputation>true</canSuggestAmputation>
-    <destroyableByDamage>false</destroyableByDamage>
-    <tags>
-      <li>MovingLimbCore</li>
-      <li>ManipulationLimbCore</li>
-    </tags>
-	<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
-	<frostbiteVulnerability>0</frostbiteVulnerability>
-	<canScarify>false</canScarify>
-  </BodyPartDef>
-
-  <BodyPartDef>
-    <defName>Tail</defName>
-    <label>tail</label>
-    <hitPoints>20</hitPoints>
-    <skinCovered>true</skinCovered>
-	<canSuggestAmputation>true</canSuggestAmputation>
-    <destroyableByDamage>false</destroyableByDamage>
-    <tags>
-      <li>ManipulationLimbCore</li>
-    </tags>
-	<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
-	<frostbiteVulnerability>0</frostbiteVulnerability>
-	<canScarify>false</canScarify>
-  </BodyPartDef>
+	<BodyPartDef>
+		<defName>EVOR_AdditionalEye</defName>
+		<label>additional additional eye</label>
+		<hitPoints>10</hitPoints>
+		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+		<delicate>true</delicate>
+		<skinCovered>false</skinCovered>
+		<canScarify>false</canScarify>
+		<socketed>false</socketed>
+		<beautyRelated>false</beautyRelated>
+		<tags/>
+        <modExtensions>
+            <li Class="EvolvedOrgansRedux.EVOR_DefModExtension_BodyPartDefToGetSurgeryDefsFromToModify">
+                <BodyPartDefToGetSurgeryDefsFromToModify>Eye</BodyPartDefToGetSurgeryDefsFromToModify>
+            </li>
+        </modExtensions>
+		<hitChanceFactors>
+			<li>
+				<key>Blunt</key>
+				<value>0</value>
+			</li>
+		</hitChanceFactors>
+	</BodyPartDef>
+	<BodyPartDef>
+		<defName>EVOR_AdditionalEar</defName>
+		<label>additional additional ear</label>
+		<hitPoints>12</hitPoints>
+		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+		<skinCovered>true</skinCovered>
+		<beautyRelated>false</beautyRelated>
+		<tags/>
+        <modExtensions>
+            <li Class="EvolvedOrgansRedux.EVOR_DefModExtension_BodyPartDefToGetSurgeryDefsFromToModify">
+                <BodyPartDefToGetSurgeryDefsFromToModify>Ear</BodyPartDefToGetSurgeryDefsFromToModify>
+            </li>
+        </modExtensions>
+	</BodyPartDef>
+	<BodyPartDef>
+		<defName>BodyCavity1</defName>
+		<label>left chest cavity</label>
+		<hitPoints>15</hitPoints>
+		<skinCovered>true</skinCovered>
+		<canSuggestAmputation>true</canSuggestAmputation>
+		<destroyableByDamage>false</destroyableByDamage>
+		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+		<frostbiteVulnerability>0</frostbiteVulnerability>
+		<canScarify>false</canScarify>
+        <modExtensions>
+            <li Class="EvolvedOrgansRedux.EVOR_DefModExtension_BodyPartDefToGetSurgeryDefsFromToModify">
+                <BodyPartDefToGetSurgeryDefsFromToModify>Lung</BodyPartDefToGetSurgeryDefsFromToModify>
+            </li>
+        </modExtensions>
+	</BodyPartDef>
+	<BodyPartDef>
+		<defName>BodyCavity2</defName>
+		<label>right chest cavity</label>
+		<hitPoints>15</hitPoints>
+		<skinCovered>true</skinCovered>
+		<canSuggestAmputation>true</canSuggestAmputation>
+		<destroyableByDamage>false</destroyableByDamage>
+		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+		<frostbiteVulnerability>0</frostbiteVulnerability>
+		<canScarify>false</canScarify>
+        <modExtensions>
+            <li Class="EvolvedOrgansRedux.EVOR_DefModExtension_BodyPartDefToGetSurgeryDefsFromToModify">
+                <BodyPartDefToGetSurgeryDefsFromToModify>Heart</BodyPartDefToGetSurgeryDefsFromToModify>
+            </li>
+        </modExtensions>
+	</BodyPartDef>
+	<BodyPartDef>
+		<defName>BodyCavityA</defName>
+		<label>abdominal cavity</label>
+		<hitPoints>15</hitPoints>
+		<skinCovered>true</skinCovered>
+		<canSuggestAmputation>true</canSuggestAmputation>
+		<destroyableByDamage>false</destroyableByDamage>
+		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+		<frostbiteVulnerability>0</frostbiteVulnerability>
+		<canScarify>false</canScarify>
+	</BodyPartDef>
+	<BodyPartDef>
+		<defName>Back</defName>
+		<label>back</label>
+		<hitPoints>20</hitPoints>
+		<skinCovered>true</skinCovered>
+		<canSuggestAmputation>true</canSuggestAmputation>
+		<destroyableByDamage>false</destroyableByDamage>
+		<tags>
+			<li>MovingLimbCore</li>
+			<li>ManipulationLimbCore</li>
+		</tags>
+		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+		<frostbiteVulnerability>0</frostbiteVulnerability>
+		<canScarify>false</canScarify>
+	</BodyPartDef>
+	<BodyPartDef>
+		<defName>Tail</defName>
+		<label>tail</label>
+		<hitPoints>20</hitPoints>
+		<skinCovered>true</skinCovered>
+		<canSuggestAmputation>true</canSuggestAmputation>
+		<destroyableByDamage>false</destroyableByDamage>
+		<tags>
+			<li>ManipulationLimbCore</li>
+			<li>MovingLimbCore</li>
+		</tags>
+		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+		<frostbiteVulnerability>0</frostbiteVulnerability>
+		<canScarify>false</canScarify>
+	</BodyPartDef>
 </Defs>

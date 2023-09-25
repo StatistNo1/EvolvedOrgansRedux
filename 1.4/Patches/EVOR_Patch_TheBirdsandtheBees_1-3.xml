@@ -4,6 +4,7 @@
 		<success>Always</success>
 		<mods>
 			<li>The Birds and the Bees</li>
+			<li>(UNOFFICIAL 1.4) The Birds and the Bees</li>
 		</mods>
 		<match Class="PatchOperationSequence">
 			<operations>

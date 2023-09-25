@@ -1,38 +1,35 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Verse;
 
 namespace EvolvedOrgansRedux {
     public sealed class Singleton {
-        public Settings settings = Verse.LoadedModManager.GetMod<EvolvedOrgansReduxSettings>().GetSettings<Settings>();
-        public System.Collections.Generic.List<System.Tuple<Verse.RecipeDef, Verse.BodyPartDef>> bodyPartsToDelete = new();
-        public System.Collections.Generic.List<System.Tuple<Verse.BodyPartTagDef, float>> BodyPartTagsToRecalculate = new();
-        public System.Collections.Generic.List<string> forbiddenMods = new System.Collections.Generic.List<string>() {
+        private static readonly Singleton instance = new();
+        public Settings Settings { get; set; } = LoadedModManager.GetMod<EvolvedOrgansReduxSettings>().GetSettings<Settings>();
+        public Dictionary<BodyPartTagDef, int> BodyPartTagsToRecalculate { get; set; } = new();
+        public List<Finished_EVOR_Research_AddGroupsAndTags> BodyPartsToReset { get; set; } = new();
+        public List<string> ForbiddenMods { get; set; } = new() {
                 "Android tiers",
                 "Android tiers - TX Series",
                 "Android Tiers Reforged"
             };
-        public string NameOfThisMod { get; set; }
-        public System.Collections.Generic.List<Verse.RecipeDef> AddLowershouldersToRecipedef { get; set; }
-        public System.Collections.Generic.List<Verse.RecipeDef> AddLeftchestcavityToRecipedef { get; set; }
-        public System.Collections.Generic.List<Verse.RecipeDef> AddRightchestcavityToRecipedef { get; set; }
-        private static readonly Singleton instance = new ();
-        static Singleton() { }
-        private Singleton() {
-            AddLowershouldersToRecipedef = new System.Collections.Generic.List<Verse.RecipeDef>();
-            AddLeftchestcavityToRecipedef = new System.Collections.Generic.List<Verse.RecipeDef>();
-            AddRightchestcavityToRecipedef = new System.Collections.Generic.List<Verse.RecipeDef>();
-        }
+        static Singleton() {}
+        private Singleton() {}
         public static Singleton Instance { get { return instance; } }
-        private float calculateAmountOfTaggedBodyparts(Verse.BodyPartTagDef tag) {
-            float TaggedBodyPart = 0;
-            foreach (Verse.BodyPartRecord bpr in Verse.DefDatabase<Verse.BodyDef>.GetNamed("Human").AllParts) {
-                foreach (Verse.BodyPartTagDef bptd in bpr.def.tags.Where(x => x == tag)) {
-                    TaggedBodyPart++;
-                }
-            }
-            return TaggedBodyPart /= 2;
+        public void FillListsOfBodyPartTagsToRecalculate() {
+            BodyPartTagsToRecalculate.Clear();
+            AddBodyPartTagDefToDictionary(RimWorld.BodyPartTagDefOf.ManipulationLimbCore);
+            AddBodyPartTagDefToDictionary(RimWorld.BodyPartTagDefOf.ManipulationLimbSegment);
+            AddBodyPartTagDefToDictionary(RimWorld.BodyPartTagDefOf.ManipulationLimbDigit);
+            AddBodyPartTagDefToDictionary(RimWorld.BodyPartTagDefOf.MovingLimbCore);
+            AddBodyPartTagDefToDictionary(RimWorld.BodyPartTagDefOf.SightSource);
+            AddBodyPartTagDefToDictionary(RimWorld.BodyPartTagDefOf.HearingSource);
         }
-        public void AddBodyPartTagDefToList(Verse.BodyPartTagDef bodyPartTagDef) {
-            BodyPartTagsToRecalculate.Add(new System.Tuple<Verse.BodyPartTagDef, float>(bodyPartTagDef, calculateAmountOfTaggedBodyparts(bodyPartTagDef)));
+        public void AddBodyPartTagDefToDictionary(BodyPartTagDef bodyPartTagDef) {
+            BodyPartTagsToRecalculate.Add(bodyPartTagDef, DefDatabase<BodyDef>.GetNamed("Human").AllParts.
+                Where(e => e.def.tags.Contains(bodyPartTagDef) &&
+                e.def.modContentPack == Settings.Mod.Content)
+                .Count());
         }
     }
 }

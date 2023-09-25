@@ -9,14 +9,14 @@ namespace EvolvedOrgansRedux {
 		private PatchOperation lastFailedOperation;
 
 		protected override bool ApplyWorker(XmlDocument xml) {
-			if (modname != null && !Singleton.Instance.settings.ChoicesOfWorkbenches.Contains(modname))
-				Singleton.Instance.settings.ChoicesOfWorkbenches.Add(modname);
+			if (modname != null && !Singleton.Instance.Settings.ChoicesOfWorkbenches.Contains(modname))
+				Singleton.Instance.Settings.ChoicesOfWorkbenches.Add(modname);
 
-			if (Singleton.Instance.settings.ChosenWorkbench == modname) {
+			if (Settings.ChosenWorkbench == modname) {
 				foreach (PatchOperation operation in operations) {
 					if (!operation.Apply(xml)) {
 						lastFailedOperation = operation;
-						Verse.Log.Error("EvolvedOrgansRedux: Error in PatchOperationChooseWorkbench -> " + operation.ToString());
+						Log.Error("EvolvedOrgansRedux: Error in PatchOperationChooseWorkbench -> " + operation.ToString());
 						return false;
 					}
 				}
