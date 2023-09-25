@@ -18,7 +18,6 @@
                 errorMessage += "\n" + e;
                 Verse.Log.Error(errorMessage);
             }
-
             Singleton.Instance.AddBodyPartTagDefToList(RimWorld.BodyPartTagDefOf.ManipulationLimbCore);
             Singleton.Instance.AddBodyPartTagDefToList(RimWorld.BodyPartTagDefOf.MovingLimbCore);
         }

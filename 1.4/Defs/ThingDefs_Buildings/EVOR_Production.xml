@@ -65,28 +65,6 @@
 				<compClass>CompHeatPusherPowered</compClass>
 				<heatPerSecond>-4</heatPerSecond>
 			</li>
-			<!--<li Class="CompProperties_Refuelable">
-				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
-				<fuelLabel>EVOR_Resource_Protein</fuelLabel>
-				<fuelCapacity>1000.0</fuelCapacity>
-				<fuelFilter>
-					<thingDefs>
-						<li>EVOR_Resource_Protein</li>
-					</thingDefs>
-				</fuelFilter>
-				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
-			</li>-->
-			<li Class="CompProperties_Refuelable">
-				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
-				<fuelLabel>EVOR_Resource_Mechanites</fuelLabel>
-				<fuelCapacity>20.0</fuelCapacity>
-				<fuelFilter>
-					<thingDefs>
-						<li>EVOR_Resource_Mechanites</li>
-					</thingDefs>
-				</fuelFilter>
-				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
-			</li>
 		</comps>
 		<placeWorkers>
 			<li>PlaceWorker_ShowFacilitiesConnections</li>

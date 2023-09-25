@@ -27,7 +27,6 @@ namespace EvolvedOrgansRedux {
                 if (limbCoreTag == t.Item1) {
                     __result = ((__result - 1f) * t.Item2) + 1f;
                 }
-                Verse.Log.Error(limbCoreTag.defName + " | " + __result);
             }
         }
         private static void RandomHediffsToGainOnBirthday_Postfix(Verse.Pawn pawn, ref System.Collections.Generic.IEnumerable<Verse.HediffGiver_Birthday> __result) {

@@ -32,12 +32,20 @@
             listingStandard.CheckboxLabeled("BodyPartAffinity", ref settings.BodyPartAffinity);
             listingStandard.GapLine();
             listingStandard.Label("Check of which mod the organ workbench should be used to create EvolvedOrgansRedux implants.\nThe game has to be restarted for this change to take effect.");
+            listingStandard.Gap();
             for (int i = 0; i < settings.ChoicesOfWorkbenches.Count; i++) {
-                if (listingStandard.RadioButton(settings.ChoicesOfWorkbenches[i], settings.ChoicesOfWorkbenches[i] == settings.ChosenWorkbench, tabIn: 30f)) {
+                if (listingStandard.RadioButton(settings.ChoicesOfWorkbenches[i], settings.ChosenWorkbench == settings.ChoicesOfWorkbenches[i], tabIn: 30f)) {
                     settings.ChosenWorkbench = settings.ChoicesOfWorkbenches[i];
                 }
             }
-            listingStandard.GapLine();
+            //listingStandard.GapLine();
+            //listingStandard.Label("Choose up to how many arms your pawns should have.");
+            //listingStandard.Gap();
+            //for (int i = 0; i < settings.ChoicesForAmountOfArms.Count; i++) {
+            //    if (listingStandard.RadioButton(settings.ChoicesForAmountOfArms[i].ToString(), settings.AmountOfArms == settings.ChoicesForAmountOfArms[i], tabIn: 30f)) {
+            //        settings.AmountOfArms = settings.ChoicesForAmountOfArms[i];
+            //    }
+            //}
             listingStandard.End();
         }
         public override string SettingsCategory() {

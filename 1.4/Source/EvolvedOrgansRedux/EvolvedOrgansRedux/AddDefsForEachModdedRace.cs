@@ -9,7 +9,7 @@
                 //If the race is Humanoid but not the base race of this game
                 if (def.race?.Humanlike == true && !def.defName.Equals("Human") && (def.modContentPack == null || !Singleton.Instance.forbiddenMods.Contains(def.modContentPack.Name))) { //Human stuff will just be solved with the XMLs.
                     try {
-                        new AddBodyParts(def.race, Singleton.Instance.NameOfThisMod);
+                        new AddBodyParts(def.race);
                         if (meatRecipeWasNotRemovedForCompatibilityReasons) {
                             new AddMeatToRecipesFromModdedRace(def.race);
                             if (Verse.Prefs.LogVerbose)
